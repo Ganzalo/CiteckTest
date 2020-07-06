@@ -13,7 +13,7 @@ import java.util.TreeMap;
 
 public class Task1 {
 
-    public TreeMap<Integer, Integer> sequenceNumber(int[] number)  {
+    public static TreeMap<Integer, Integer> sequenceNumber(int[] number)  {
         Map<Integer, Integer> map = new HashMap<>();
         for (int n : number) {
             map.put(n, map.getOrDefault(n, 0) + 1);

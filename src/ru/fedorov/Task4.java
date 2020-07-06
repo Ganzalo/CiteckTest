@@ -14,4 +14,32 @@ package ru.fedorov;
  */
 
 public class Task4 {
+
+          /*
+PostgreSQL 9.6
+     */
+
+    /*
+    create table test (id int);
+insert into test (id)
+    values (1),
+           (2),
+           (4),
+           (7),
+           (8),
+           (11),
+           (13),
+           (16),
+           (17),
+           (18),
+           (25);
+     */
+
+    /*
+   select prev_id + 1 as start, t.id - t.prev_id - 1 as count
+from (select id, lag(id) over (order by id) as prev_id from test) as t
+where t.id - t.prev_id > 1;
+     */
+
+
 }
