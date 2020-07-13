@@ -9,7 +9,7 @@ import java.util.Stack;
 
 public class Task2 {
 
-    public static boolean check(String input) {
+    public static boolean checkPattern(String input) {
         Stack<Character> stack = new Stack<>();
 
         for (int j = 0; j < input.length(); j++) {
