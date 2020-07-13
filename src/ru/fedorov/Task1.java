@@ -1,9 +1,7 @@
 package ru.fedorov;
 
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /*
 имеется массив чисел, получить список вида {число, количество вхождений числа в массив},
@@ -13,12 +11,16 @@ import java.util.TreeMap;
 
 public class Task1 {
 
-    public static TreeMap<Integer, Integer> sequenceNumber(int[] number)  {
+    public static SortedSet<Map.Entry<Integer, Integer>> sequenceNumber(int[] number)  {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int n : number) {
+        for (int n : number)
             map.put(n, map.getOrDefault(n, 0) + 1);
-        }
-        return new TreeMap<>(map);
+
+        SortedSet<Map.Entry<Integer, Integer>> sortedSet = new TreeSet<>(Map.Entry.comparingByValue());
+
+        sortedSet.addAll(map.entrySet());
+
+        return sortedSet;
     }
 
 }

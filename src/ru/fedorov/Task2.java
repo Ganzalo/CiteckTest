@@ -5,9 +5,38 @@ package ru.fedorov;
 т.е., например ([][[]()]) - правильно, ([][]()]) – неправильно
  */
 
+import java.util.Stack;
+
 public class Task2 {
 
-    /*
-    Нужно написать регулярное выражение или функцию проверяющую регулярные выражения?
-    */
+    public static boolean check(String input) {
+        Stack<Character> stack = new Stack<>();
+
+        for (int j = 0; j < input.length(); j++) {
+            char ch = input.charAt(j);
+            switch (ch) {
+                case '{':
+                case '[':
+                case '(':
+                    stack.push(ch);
+                    break;
+                case '}':
+                case ']':
+                case ')':
+                    if (stack.isEmpty()) {
+                        return false;
+                    } else {
+                        char chx = stack.pop();
+                        if ((ch == '}' && chx != '{') || (ch == ']' && chx != '[')
+                                || (ch == ')' && chx != '('))
+                            return false;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return stack.isEmpty();
+    }
+
 }

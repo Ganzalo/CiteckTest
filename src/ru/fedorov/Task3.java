@@ -9,8 +9,6 @@ package ru.fedorov;
 public class Task3 {
 
     public static Integer moveOne(int number)  {
-        if ((number & 1) == 0)
-            number = number | 1;
-        return number;
+        return number | number + 1;
     }
 }
